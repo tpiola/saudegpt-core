@@ -1,41 +1,30 @@
-# SaúdeGPT Core 🧩
+# SaúdeGPT Core — biblioteca experimental
 
-Shared library do ecossistema **tpiola** — componentes, serviços e lógica compartilhada entre todos os cursos EAD.
+Protótipo de componentes, tipos e serviços compartilháveis do ecossistema SaúdeGPT.
 
-## Módulos
+## Estado
 
-- 🎨 **UI Components** — Design System (Navy + Gold, glassmorphism)
-- 🎮 **Gamificação** — XP, badges, streaks, níveis, leaderboard
-- 🤖 **AI Tutor** — OmniRoute + Gemini
-- 📊 **Analytics & BI** — Métricas e relatórios
-- 🔐 **Auth** — Integração com Supabase
+Este repositório **não é uma aplicação de produção** e não deve ser conectado à Vercel. O SaúdeGPT oficial está em:
 
-## Cursos que utilizam este pacote
+- [`tpiola/saudegpt`](https://github.com/tpiola/saudegpt)
 
-- [saudegpt](https://github.com/tpiola/saudegpt) — Farmácia
-- [saudegpt-nutricao](https://github.com/tpiola/saudegpt-nutricao) — Nutrição
-- [saudegpt-fisioterapia](https://github.com/tpiola/saudegpt-fisioterapia) — Fisioterapia
-- [saudegpt-psicologia](https://github.com/tpiola/saudegpt-psicologia) — Psicologia
+O projeto principal atualmente não importa `@saudegpt/core`. Além disso, este protótipo foi iniciado com Next.js 14 e React 18, enquanto o SaúdeGPT principal utiliza uma stack mais recente.
 
-## Como usar
+## Conteúdo preservado
 
-```bash
-pnpm add @saudegpt/core
-```
+- componentes de interface experimentais;
+- tipos para gamificação;
+- contratos do tutor de IA;
+- tipos de analytics e autenticação.
 
-```tsx
-import { Button, GlassCard } from '@saudegpt/core'
-import { useGamification } from '@saudegpt/core/gamification'
-```
+## Regra de incorporação
 
-## Estrutura
+Antes de reutilizar qualquer módulo:
 
-```
-src/
-  components/   # UI components
-  gamification/ # XP, badges, streaks
-  ai/           # OmniRoute + Gemini integration
-  analytics/    # BI metrics
-  auth/         # Supabase helpers
-  styles/       # Design tokens
-```
+1. comparar com a implementação atual do `saudegpt`;
+2. migrar somente código realmente necessário;
+3. atualizar tipos e dependências;
+4. adicionar testes;
+5. evitar criar um segundo runtime ou um segundo deploy.
+
+As verticais de Nutrição, Fisioterapia e Psicologia estão documentadas em `saudegpt/docs/VERTICALS.md` e devem compartilhar a aplicação principal.
